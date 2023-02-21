@@ -1,6 +1,6 @@
 *{
     box-sizing: border-box;
-    
+    font-family: 'Roboto';
 }
 button:hover{
     cursor: pointer;
@@ -22,6 +22,7 @@ button:hover{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    overflow: hidden;
     align-items: flex-end;
 }
 .palavra-forca button{
@@ -34,6 +35,11 @@ button:hover{
     font-size: 20px;
     font-weight: 700;
     color: #FFFFFF;
+}
+.palavra-forca div{
+    font-size: 50px;
+    color: #000000;
+    text-align: center;
 }
 
 /* LETRAS */

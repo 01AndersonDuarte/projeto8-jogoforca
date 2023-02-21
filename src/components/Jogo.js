@@ -1,14 +1,14 @@
-import forca0 from "../assets/forca0.png";
+// import forca0 from "../assets/forca0.png";
 
-export default function Jogo(){
+export default function Jogo({forca, letras, gerarPalavra}){
     return (
         <div className="topo-jogo">
             <div className="imagem-forca">
-                <img src={forca0} alt={forca0}/>
+                <img src={forca} alt={forca}/>
             </div>
             <div className="palavra-forca">
-                <button>Escolher palavra</button>
-                <div>Quantidade de letras da palavra </div>
+                <button onClick={gerarPalavra}>Escolher palavra</button>
+                <div>{letras}</div>
             </div>
         </div>
     );
