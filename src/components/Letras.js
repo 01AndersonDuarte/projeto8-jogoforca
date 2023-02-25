@@ -17,7 +17,7 @@ export default function Letras({tentativaLetra, botaoEstado, letrasUsadas}){
 
 function BotaoLetra({letra, tentativaLetra, botaoEstado, letrasUsadas}){
     return (
-        <button onClick={()=>tentativaLetra(letra)} disabled = {letrasUsadas.includes(letra) ? true : botaoEstado}
+        <button data-test="letter" onClick={()=>tentativaLetra(letra)} disabled = {letrasUsadas.includes(letra) ? true : botaoEstado}
         className={letrasUsadas.includes(letra) || botaoEstado ? "desabilitado" : ""}>{letra}</button>
     );
 }
