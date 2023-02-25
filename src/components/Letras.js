@@ -1,35 +1,23 @@
-import { useState } from "react";
-
-export default function Letras({tentativaLetra, botaoEstado, reiniciarJogo}){
+export default function Letras({tentativaLetra, botaoEstado, letrasUsadas}){
     const letras1 = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M'];
     const letras2 = ['N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
     return(
         <div className="base-jogo">
             <div className="letras-jogo">
                 {letras1.map((l)=><BotaoLetra
-                key={l} letra={l} tentativaLetra={tentativaLetra} botaoEstado={botaoEstado} reiniciarJogo={reiniciarJogo}/>)}
+                key={l} letra={l} tentativaLetra={tentativaLetra} botaoEstado={botaoEstado} letrasUsadas={letrasUsadas}/>)}
             </div>
             <div className="letras-jogo">
                 {letras2.map((l)=><BotaoLetra
-                key={l} letra={l} tentativaLetra={tentativaLetra} botaoEstado={botaoEstado} reiniciarJogo={reiniciarJogo}/>)}
+                key={l} letra={l} tentativaLetra={tentativaLetra} botaoEstado={botaoEstado} letrasUsadas={letrasUsadas}/>)}
             </div>
         </div>
     );
 }
 
-function BotaoLetra({letra, tentativaLetra, botaoEstado, reiniciarJogo}){
-    const [estadoUnico, setEstadoUnico] = useState([false, 0]);
-    if(reiniciarJogo>0 && estadoUnico[1]===1){
-        setEstadoUnico([false, 0]);
-    }
-    function desativarBotao(){
-        setEstadoUnico([true, 1]);
-    }
+function BotaoLetra({letra, tentativaLetra, botaoEstado, letrasUsadas}){
     return (
-        <button onClick={()=>{
-            tentativaLetra(letra);
-            desativarBotao();
-        }} disabled = {botaoEstado ? botaoEstado : estadoUnico[0]}
-        className={botaoEstado ? "desabilitado" : (estadoUnico[0] ? "desabilitado" : "")}>{letra}</button>
+        <button onClick={()=>tentativaLetra(letra)} disabled = {letrasUsadas.includes(letra) ? true : botaoEstado}
+        className={letrasUsadas.includes(letra) || botaoEstado ? "desabilitado" : ""}>{letra}</button>
     );
 }
