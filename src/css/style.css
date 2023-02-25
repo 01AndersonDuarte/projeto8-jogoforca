@@ -38,7 +38,6 @@ button:hover{
 }
 .palavra-forca div{
     font-size: 50px;
-    color: #000000;
     text-align: center;
 }
 
@@ -67,4 +66,14 @@ button:hover{
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.vencedor{
+    color: green;
+}
+.perdedor{
+    color: red;
+}
+.desabilitado{
+    filter: brightness(80%);
 }
